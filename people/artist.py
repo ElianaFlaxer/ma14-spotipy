@@ -2,8 +2,11 @@ from people.premium import Premium
 
 
 class Artist(Premium):
-  def __init__(self, id, name ,albums:list, genre):
+  def __init__(self, id, name):
     self.id = id
-    self.name = name
-    self.albums = albums
-    self.genre=genre
+    self.username = name
+    self.albums = []
+    #self.password = id+name
+
+  def add_album(self, album_id):
+    self.albums.append(album_id)

@@ -5,8 +5,8 @@ from objects.song import Song
 
 class User:
 
-    def __init__(self, name, password):
-        self.name = name
+    def __init__(self, username, password):
+        self.username = username
         self.password = password
         self.num_playlists = 0
         self.playlists = {}
