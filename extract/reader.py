@@ -1,13 +1,8 @@
 from abc import abstractmethod
 
 
-class FileReader:
+class Reader:
 
     @abstractmethod
-    def get_objects_list(self, spotipy_manager):
+    def get_all_files_info(self):
         pass
-
-    @abstractmethod
-    def create_object_from_file(self):
-        pass
-

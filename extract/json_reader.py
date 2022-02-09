@@ -1,13 +1,10 @@
 import os
-from abc import abstractmethod
 
-from extract.reader import FileReader
+from extract.reader import Reader
 import json
 
-import jsonpickle
 
-
-class JsonReader(FileReader):
+class JsonReader(Reader):
 
     def file_as_dict(self, file_name):
 
@@ -15,10 +12,11 @@ class JsonReader(FileReader):
             json_object = json.load(json_file)
         return json_object
 
-    def get_all_files_dicts(self):
+    def get_all_files_info(self):
 
         # list of dicts
         all_info = []
+
         path = os.environ.get('SONGS_FOLDER_PATH')
         directory = os.fsencode(path)
 
@@ -28,11 +26,3 @@ class JsonReader(FileReader):
                 all_info.append(self.file_as_dict(file_name))
 
         return all_info
-
-        '''
-        for filename in os.listdir(path):
-            f = os.path.join(path, filename)
-            # checking if it is a file
-            if os.path.isfile(f):
-                print(f)
-        '''
