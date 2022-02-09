@@ -10,6 +10,12 @@ def main():
     for song in app_manager.songs:
         song.print_details()
 
+    for artist in app_manager.artists.values():
+        print(artist.name)
+
+    for album in app_manager.albums.values():
+        print(album.name)
+
 
 if __name__ == '__main__':
     main()

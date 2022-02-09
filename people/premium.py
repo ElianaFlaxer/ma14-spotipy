@@ -9,7 +9,7 @@ class Premium(User):
         self.playlists.update({playlist_name: songs})
         print(f"The playlist {playlist_name} was created successfully.")
 
-    def add_song_to_playlist(self, playlist_name, song:Song):
+    def add_song_to_playlist(self, playlist_name, song: Song):
         if song not in self.playlists.get(playlist_name):
             self.playlists.get(playlist_name).append(song)
             print(f"The song {song.name} was added to the playlist {playlist_name} successfully.")

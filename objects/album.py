@@ -4,5 +4,5 @@ class Album:
         self.name = name
         self.songs = []
 
-    def add_song_to_album(self, song_id):
-        self.songs.append(song_id)
+    def add_song(self, song):
+        self.songs.append(song)

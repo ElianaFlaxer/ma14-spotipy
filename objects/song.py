@@ -9,4 +9,3 @@ class Song:
     def print_details(self):
         print(f"id: {self.id}, name: {self.name}, popularity:{self.popularity},"
               f"album_id:{self.album_id}, artists: {self.artists_ids}")
-
