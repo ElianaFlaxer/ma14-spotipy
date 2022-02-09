@@ -2,7 +2,7 @@ import json
 
 import jsonpickle
 
-from manager.spotipy_manager import SpotipyManager
+from transform.spotipy_manager import SpotipyManager
 from objects.song import Song
 from people.artist import Artist
 
