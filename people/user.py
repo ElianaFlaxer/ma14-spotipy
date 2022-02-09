@@ -7,7 +7,7 @@ class User:
         self.name=name
         self.password=password
         self.num_playlists=0
-        self.playlists = []
+        self.playlists = {}
 
     @abstractmethod
     def create_playlist(self, playlist_name, songs:list):
