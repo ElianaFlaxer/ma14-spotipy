@@ -9,8 +9,8 @@ from people.artist import Artist
 
 def main():
 
-    manager_of_app = SpotipyManager()
-    #lili = Artist()
+    app_manager = SpotipyManager()
+    app_manager.load_info()
 
 
     path = "C:\\Users\\Eliana\\Desktop\\spotipy_songs\\song_1QxjdVgVrqRRuPM4T0dgWx.json"

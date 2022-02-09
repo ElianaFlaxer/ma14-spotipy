@@ -1,3 +1,4 @@
+from load.load_info import LoadInfo
 from objects.album import Album
 from objects.song import Song
 
@@ -26,6 +27,9 @@ class SpotipyManager:
     def add_song(self, song_id):
         if song_id not in self:
             self.songs.append(song_id)
+
+    def load_info(self):
+        LoadInfo.load_all_info_to_system()
 
 '''
     def add_album(self, album:Album):

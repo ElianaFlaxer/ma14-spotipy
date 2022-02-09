@@ -1,11 +1,7 @@
-import os
-
-from objects.song import Song
 from people.artist import Artist
-from transform.spotipy_manager import SpotipyManager
 
 
-class Creator:
+class ObjectsCreator:
 
     def create_artist(self, curr_artist: dict):
         id = curr_artist.get('id')
