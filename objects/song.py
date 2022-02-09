@@ -3,5 +3,10 @@ class Song:
         self.id = id
         self.name = name
         self.popularity = popularity
-        self.album = album_id
-        self.artists = artists_ids
+        self.album_id = album_id
+        self.artists_ids = artists_ids
+
+    def print_details(self):
+        print(f"id: {self.id}, name: {self.name}, popularity:{self.popularity},"
+              f"album_id:{self.album_id}, artists: {self.artists_ids}")
+

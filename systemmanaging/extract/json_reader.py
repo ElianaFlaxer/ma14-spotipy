@@ -1,6 +1,6 @@
 import os
 
-from extract.reader import Reader
+from systemmanaging.extract.reader import Reader
 import json
 
 
@@ -23,6 +23,6 @@ class JsonReader(Reader):
         for file in os.listdir(directory):
             file_name = os.fsdecode(file)
             if file_name.endswith(".json"):
-                all_info.append(self.file_as_dict(file_name))
+                all_info.append(self.file_as_dict(path + file_name))
 
-        return all_info
+        return list(all_info)
