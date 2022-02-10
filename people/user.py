@@ -1,14 +1,12 @@
-import logging
 from abc import abstractmethod
 
 from objects.song import Song
 
 
 class User:
+    types = [{0: "free"}, {1: "premium"}, {2: "artist"}]
 
-    types = [{0:"free"},{1:"premium"}, {2:"artist"}]
-
-    def __init__(self, username, password, type:int):
+    def __init__(self, username, password, type: int):
         self.username = username
         self.password = password
         self.type = type

@@ -1,8 +1,6 @@
-import logging
 import os
 from itertools import islice
 
-import logs
 from decorators.invalid_ids import Ids
 from search.searcher import Searcher
 
@@ -20,7 +18,7 @@ class FreeSearcher(Searcher):
     @Ids.invalid_artist
     def get_albums_of_artist(self):
         print("Please enter an artist id:")
-        artist_id=input()
+        artist_id = input()
         artist = self.app_manager.artists.get(artist_id)
         print(f"The albums of {artist.name} are:")
         for album in islice(artist.albums, self.max_show):

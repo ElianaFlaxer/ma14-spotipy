@@ -1,5 +1,5 @@
 class Error(Exception):
-    """Base class for other exceptions"""
+    #a base class for other exceptions
     pass
 
 

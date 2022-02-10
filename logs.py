@@ -1,6 +1,7 @@
 import os
 import logging
 
+
 def activate_system_logs():
     path = os.environ.get('LOGS_PATH')
     format = '%(asctime)s | %(levelname)s - %(message)s'
