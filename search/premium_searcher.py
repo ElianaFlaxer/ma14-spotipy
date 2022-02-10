@@ -1,14 +1,16 @@
+import logging
+import logs
 from decorators.invalid_ids import Ids
 from errors.costum_errors import InvalidArtistId, InvalidAlbumId
 from search.searcher import Searcher
 
 
 class PremiumSearcher(Searcher):
-
     def get_all_artists(self):
         print("The artists that are in the system:")
         for artist in self.app_manager.artists.values():
             print(artist.name)
+        self.logging.info("Showed all artists in the system")
 
     @Ids.invalid_artist
     def get_albums_of_artist(self, artist_id):
@@ -19,6 +21,7 @@ class PremiumSearcher(Searcher):
         print(f"The albums of {artist.name} are:")
         for album in artist.albums:
             print(album.name)
+        self.logging.info(f"Showed all albums of {artist.name}")
 
     @Ids.invalid_artist
     def get_top_10_songs(self, artist_id):
@@ -38,6 +41,7 @@ class PremiumSearcher(Searcher):
         all_artist_songs.sort(reverse=True, key=func)
         for song in all_artist_songs:
             song.print_details()
+        logging.info(f"Showed top 10 songs of {artist.name}")
 
     @Ids.invalid_album
     def get_songs_in_album(self, album_id):
@@ -47,3 +51,4 @@ class PremiumSearcher(Searcher):
         print(f"All the song in the album {album.name}:")
         for song in album.songs:
             song.print_details()
+        self.logging.info(f"Showed all songs in {album.name}")

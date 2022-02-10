@@ -1,3 +1,4 @@
+import logging
 import os
 
 from systemmanaging.extract.reader import Reader
@@ -10,6 +11,7 @@ class JsonReader(Reader):
 
         with open(file_name, 'r') as json_file:
             json_object = json.load(json_file)
+        logging.debug("read file and got it as dict")
         return json_object
 
     def get_all_files_info(self):
@@ -25,4 +27,5 @@ class JsonReader(Reader):
             if file_name.endswith(".json"):
                 all_info.append(self.file_as_dict(path + file_name))
 
+        logging.debug("read all files and got them as a list of dicts")
         return list(all_info)

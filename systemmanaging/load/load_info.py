@@ -1,3 +1,5 @@
+import logging
+
 from objects.song import Song
 from systemmanaging.extract.json_reader import JsonReader
 from systemmanaging.load.spotipy_manager import SpotipyManager
@@ -11,11 +13,11 @@ class LoadInfo:
         all_info = JsonReader().get_all_files_info()
         for curr_file in all_info:
             self.insert_file_to_system(curr_file, spotipy_manager)
-
+        logging.info("Loaded all information from files to system successfully.")
 
     def insert_file_to_system(self, obj: dict, spotipy_manager: SpotipyManager):
 
-        #inserting a song
+        # inserting a song
         album_id = obj.get('track').get('album').get('id')
         artists_ids = []
         artists = obj.get('track').get('artists')
@@ -26,14 +28,14 @@ class LoadInfo:
                     obj.get('track').get('popularity'), album_id, artists_ids)
         spotipy_manager.add_song(song)
 
-        #inserting an album
+        # inserting an album
         curr_album = ObjectsCreator().create_album(obj.get('track').get('album'))
         curr_album.add_song(song)
         was_album_added = spotipy_manager.add_album(curr_album)
         if not was_album_added:
             spotipy_manager.albums.get(album_id).add_song(song)
 
-        #inserting the artists
+        # inserting the artists
         artists = obj.get('track').get('artists')
         for curr_artist in artists:
             curr_artist_object = ObjectsCreator().create_artist(curr_artist)
@@ -43,9 +45,4 @@ class LoadInfo:
                 updated_album = spotipy_manager.albums.get(album_id)
                 spotipy_manager.artists.get(curr_artist_object.id).add_album(updated_album)
 
-
-
-
-
-
-
+        logging.info("loaded file successfully.")

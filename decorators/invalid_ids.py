@@ -1,14 +1,16 @@
 from errors.costum_errors import InvalidArtistId, InvalidAlbumId
+import logs
 
 
 class Ids:
+    logging = logs.activate_system_logs()
+    
     def invalid_artist(func):
         def wrapper(self, artist_id):
             try:
                 func(self, artist_id)
             except InvalidArtistId:
-                print("ERROR! The enterd id is not of an artist in the system. "
-                      "Please try again with a different id")
+                self.logging.error('Enterd id is not of an artist in the system. Try again with a different id.')
 
         return wrapper
 
@@ -17,7 +19,6 @@ class Ids:
             try:
                 func(self, album_id)
             except InvalidAlbumId:
-                print("ERROR! The enterd id is not of an album in the system. "
-                      "Please try again with a different id")
+                self.logging.error('Enterd id is not of an artist in the system. Try again with a different id.')
 
         return wrapper

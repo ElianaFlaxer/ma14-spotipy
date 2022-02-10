@@ -1,22 +1,14 @@
 from search.premium_searcher import PremiumSearcher
-from search.searcher import Searcher
-from systemmanaging.load.load_info import LoadInfo
-from systemmanaging.load.spotipy_manager import SpotipyManager
-from itertools import islice
 
 
 def main():
+    #activate_system_logs()
     #app_manager = SpotipyManager()
     #LoadInfo().load_all_info_to_system(app_manager)
     search = PremiumSearcher()
-    search.get_top_10_songs("6cN0HshabuRh8Vea9ULSKJ")
-    search.get_albums_of_artist("6cN0HshabuRh8Vea9ULSKJ")
+    #search.get_top_10_songs("6cN0HshabuRh8Vea9ULSKJ")
+    #search.get_albums_of_artist("6cN0HshabuRh8Vea9ULSKJ")
     search.get_songs_in_album("03DcpryHcONqKi2uKXK5Ow")
-
-    items = [1,2,3,4,5,6,7,8]
-
-    for item in islice(items, 5):
-        print(item)
 
 
     #check
