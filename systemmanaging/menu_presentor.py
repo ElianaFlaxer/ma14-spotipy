@@ -18,7 +18,7 @@ class MenuPresentor:
 
         submenu_item1 = SubmenuItem("Log in Free", selection_menu_free, menu)
         submenu_item2 = SubmenuItem("Log in Premium", selection_menu_prem, menu)
-        function_item = FunctionItem("Sign up", Actions().SignUp,[])
+        function_item = FunctionItem("Sign up", Actions().sign_up, [])
 
         free = FreeSearcher()
         selection_menu_free.append_item(

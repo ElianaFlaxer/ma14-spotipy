@@ -6,13 +6,13 @@ from people.premium import Premium
 
 class Actions:
 
-    def SignUp(self):
+    def sign_up(self):
         print("Enter username:")
-        username=input()
+        username = input()
         print("Enter password:")
-        password=input()
+        password = input()
         print("Enter type: (0-free, 1-premium, 2-artist)")
-        type=input()
+        type = input()
         if (type == 0):
             user = Free(username, password)
         elif (type == 1):
