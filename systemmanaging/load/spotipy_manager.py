@@ -14,13 +14,15 @@ class SpotipyManager:
         if artist.id not in self.artists.keys():
             self.artists.update({artist.id: artist})
             return True
-        return False
+        else:
+            return False
 
     def add_album(self, album: Album):
         if album.id not in self.albums.keys():
             self.albums.update({album.id: album})
             return True
-        return False
+        else:
+            return False
 
     def add_song(self, song_id):
         if song_id not in self.songs:

@@ -28,19 +28,20 @@ class LoadInfo:
 
         #inserting an album
         curr_album = ObjectsCreator().create_album(obj.get('track').get('album'))
-        curr_album.songs.append(song)
-        was_added = spotipy_manager.add_album(curr_album)
-        if not was_added:
+        curr_album.add_song(song)
+        was_album_added = spotipy_manager.add_album(curr_album)
+        if not was_album_added:
             spotipy_manager.albums.get(album_id).add_song(song)
 
         #inserting the artists
         artists = obj.get('track').get('artists')
         for curr_artist in artists:
             curr_artist_object = ObjectsCreator().create_artist(curr_artist)
+            curr_artist_object.add_album(curr_album)
             was_artist_added = spotipy_manager.add_artist(curr_artist_object)
             if not was_artist_added:
-                new_album = spotipy_manager.albums.get(album_id)
-                spotipy_manager.artists.get(curr_artist_object.id).add_album(new_album)
+                updated_album = spotipy_manager.albums.get(album_id)
+                spotipy_manager.artists.get(curr_artist_object.id).add_album(updated_album)
 
 
 

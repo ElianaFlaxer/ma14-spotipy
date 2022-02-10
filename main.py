@@ -1,12 +1,17 @@
+from search.searcher import Searcher
 from systemmanaging.load.load_info import LoadInfo
 from systemmanaging.load.spotipy_manager import SpotipyManager
 
 
 def main():
-    app_manager = SpotipyManager()
-    LoadInfo().load_all_info_to_system(app_manager)
+    #app_manager = SpotipyManager()
+    #LoadInfo().load_all_info_to_system(app_manager)
+    search = Searcher()
+    search.get_top_10_songs("39jFFncu6W0phhYK16Dp9g")
+    search.get_albums_of_artist("39jFFncu6W0phhYK16Dp9g")
 
     #check
+    '''
     for song in app_manager.songs:
         song.print_details()
 
@@ -15,6 +20,37 @@ def main():
 
     for album in app_manager.albums.values():
         print(album.name)
+    
+
+    arti = app_manager.artists.get("2l6M7GaS9x3rZOX6nDX3CM")
+    print(arti.albums)
+    print(len(arti.albums))
+    for album in app_manager.artists.get("2l6M7GaS9x3rZOX6nDX3CM").albums:
+        print(album.name)
+        print(len(album.songs))
+        for song in album.songs:
+            song.print_details()
+    
+
+    def func(song):
+        return song.popularity
+
+    artist = app_manager.artists.get("2l6M7GaS9x3rZOX6nDX3CM")
+    print(f"Top 10 songs of {artist.name}:")
+    all_artist_songs = []
+    for album in artist.albums:
+        for song in album.songs:
+            all_artist_songs.append(song)
+
+    all_artist_songs.sort(reverse=True, key=func)
+    for songi in all_artist_songs:
+        songi.print_details()
+
+    album = app_manager.albums.get("6cN0HshabuRh8Vea9ULSKJ")
+    for song in album.songs:
+        song.print_details()
+'''
+
 
 
 if __name__ == '__main__':

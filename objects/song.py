@@ -7,5 +7,5 @@ class Song:
         self.artists_ids = artists_ids
 
     def print_details(self):
-        print(f"id: {self.id}, name: {self.name}, popularity:{self.popularity},"
+        print(f"id: {self.id}, name: {self.name}, popularity:{self.popularity}, "
               f"album_id:{self.album_id}, artists: {self.artists_ids}")
