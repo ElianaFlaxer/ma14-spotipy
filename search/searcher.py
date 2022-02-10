@@ -11,7 +11,7 @@ class Searcher:
     logging = logs.activate_system_logs()
 
     @abstractmethod
-    def get_albums_of_artist(self, artist_id):
+    def get_albums_of_artist(self):
         pass
 
     @abstractmethod
@@ -19,9 +19,9 @@ class Searcher:
         pass
 
     @abstractmethod
-    def get_top_10_songs(self, artist_id):
+    def get_top_10_songs(self):
         pass
 
     @abstractmethod
-    def get_songs_in_album(self, album_id):
+    def get_songs_in_album(self):
         pass

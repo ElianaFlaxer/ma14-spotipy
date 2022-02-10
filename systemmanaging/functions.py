@@ -15,5 +15,4 @@ class Actions:
             user = Artist(0, username, password)
 
         details = [user.username, user.password, type]
-        print(details)
         UsersWriter().write_to_file(details)
