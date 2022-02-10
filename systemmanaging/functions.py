@@ -6,7 +6,13 @@ from people.premium import Premium
 
 class Actions:
 
-    def SingUp(self, username, password, type=0):
+    def SignUp(self):
+        print("Enter username:")
+        username=input()
+        print("Enter password:")
+        password=input()
+        print("Enter type: (0-free, 1-premium, 2-artist)")
+        type=input()
         if (type == 0):
             user = Free(username, password)
         elif (type == 1):
@@ -14,5 +20,5 @@ class Actions:
         elif (type == 2):
             user = Artist(0, username, password)
 
-        details = [user.username, user.password, type]
+        details = [username, password, type]
         UsersWriter().write_to_file(details)

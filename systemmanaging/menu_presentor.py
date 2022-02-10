@@ -3,6 +3,7 @@ from consolemenu.items import *
 
 from search.free_searcher import FreeSearcher
 from search.premium_searcher import PremiumSearcher
+from systemmanaging.functions import Actions
 
 
 class MenuPresentor:
@@ -17,6 +18,7 @@ class MenuPresentor:
 
         submenu_item1 = SubmenuItem("Log in Free", selection_menu_free, menu)
         submenu_item2 = SubmenuItem("Log in Premium", selection_menu_prem, menu)
+        function_item = FunctionItem("Sign up", Actions().SignUp,[])
 
         free = FreeSearcher()
         selection_menu_free.append_item(
@@ -41,5 +43,6 @@ class MenuPresentor:
         menu.append_item(menu_item)
         menu.append_item(submenu_item1)
         menu.append_item(submenu_item2)
+        menu.append_item(function_item)
 
         menu.show()
