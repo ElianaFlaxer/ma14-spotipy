@@ -1,9 +1,9 @@
 import logging
 
 from objects.song import Song
-from systemmanaging.extract.json_reader import JsonReader
-from systemmanaging.load.spotipy_manager import SpotipyManager
-from systemmanaging.transform.objects_creator import ObjectsCreator
+from etl.extract.json_reader import JsonReader
+from spotipy_manager import SpotipyManager
+from etl.transform.objects_creator import ObjectsCreator
 
 
 class LoadInfo:

@@ -1,10 +1,8 @@
 from abc import abstractmethod
 
 import logs
-from systemmanaging.load.load_info import LoadInfo
-from systemmanaging.load.spotipy_manager import SpotipyManager
-from consolemenu import *
-from consolemenu.items import *
+from etl.load.load_info import LoadInfo
+from spotipy_manager import SpotipyManager
 
 
 class Searcher:

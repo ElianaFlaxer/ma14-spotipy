@@ -1,4 +1,7 @@
+from infosaving.users_csv_writer import UsersWriter
+from infosaving.writer import Writer
 from search.premium_searcher import PremiumSearcher
+from systemmanaging.functions import Actions
 
 
 def main():
@@ -10,7 +13,9 @@ def main():
     #search.get_albums_of_artist("6cN0HshabuRh8Vea9ULSKJ")
     search.get_songs_in_album("03DcpryHcONqKi2uKXK5Ow")
 
-
+    UsersWriter().create_file()
+    Actions().SingUp("hello","mypassword")
+    Actions.SingUp("hi","pass",1)
     #check
     '''
     for song in app_manager.songs:

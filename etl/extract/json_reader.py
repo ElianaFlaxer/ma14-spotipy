@@ -1,7 +1,7 @@
 import logging
 import os
 
-from systemmanaging.extract.reader import Reader
+from etl.extract.reader import Reader
 import json
 
 

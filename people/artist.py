@@ -2,7 +2,7 @@ from people.premium import Premium
 
 
 class Artist(Premium):
-    def __init__(self, id, name):
+    def __init__(self, id, name, password=None):
         self.id = id
         self.name = name
         self.albums = []

@@ -4,7 +4,7 @@ import logs
 
 class Ids:
     logging = logs.activate_system_logs()
-    
+
     def invalid_artist(func):
         def wrapper(self, artist_id):
             try:
