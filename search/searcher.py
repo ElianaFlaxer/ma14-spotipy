@@ -11,11 +11,11 @@ class Searcher:
     LoadInfo().load_all_info_to_system(app_manager)
 
     @abstractmethod
-    def get_all_artists(self):
+    def get_albums_of_artist(self, artist_id):
         pass
 
     @abstractmethod
-    def get_albums_of_artist(self, artist_id):
+    def get_all_artists(self):
         pass
 
     @abstractmethod

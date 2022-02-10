@@ -1,6 +1,7 @@
 import os
 from itertools import islice
 
+from decorators.invalid_ids import Ids
 from search.searcher import Searcher
 
 
@@ -13,6 +14,7 @@ class FreeSearcher(Searcher):
             print(artist.name)
         print("To see more results, upgrade to premium")
 
+    @Ids.invalid_artist
     def get_albums_of_artist(self, artist_id):
         artist = self.app_manager.artists.get(artist_id)
         print(f"The albums of {artist.name} are:")
@@ -20,6 +22,7 @@ class FreeSearcher(Searcher):
             print(album.name)
         print("To see more results, upgrade to premium")
 
+    @Ids.invalid_artist
     def get_top_10_songs(self, artist_id):
 
         def func(song):
@@ -37,6 +40,7 @@ class FreeSearcher(Searcher):
             song.print_details()
         print("To see more results, upgrade to premium")
 
+    @Ids.invalid_album
     def get_songs_in_album(self, album_id):
         album = self.app_manager.albums.get(album_id)
         print(f"All the song in the album {album.name}:")
