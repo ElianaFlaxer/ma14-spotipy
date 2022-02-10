@@ -1,6 +1,7 @@
 from search.searcher import Searcher
 from systemmanaging.load.load_info import LoadInfo
 from systemmanaging.load.spotipy_manager import SpotipyManager
+from itertools import islice
 
 
 def main():
@@ -9,6 +10,11 @@ def main():
     search = Searcher()
     search.get_top_10_songs("39jFFncu6W0phhYK16Dp9g")
     search.get_albums_of_artist("39jFFncu6W0phhYK16Dp9g")
+
+    items = [1,2,3,4,5,6,7,8]
+
+    for item in islice(items, 5):
+        print(item)
 
     #check
     '''
